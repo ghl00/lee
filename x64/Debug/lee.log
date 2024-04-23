@@ -1,5 +1,0 @@
-﻿  lee.cpp
-  mylist.cpp
-C:\Users\guliu\source\repos\lee\mylist.cpp(256,17): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  Generating Code...
-  lee.vcxproj -> C:\Users\guliu\source\repos\learncpp\x64\Debug\lee.exe

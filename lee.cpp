@@ -3,12 +3,12 @@
 int main()
 {
     ListNode* head = NULL;
-    std::vector<int> v{1,2,3,4};
+    std::vector<int> v{9,9,9,9,9,9,9};
     insert(&head, v);
     print(head);
 
     ListNode* head2 = NULL;
-    std::vector<int> v2{1};
+    std::vector<int> v2{9,9,9,9};
     insert(&head2, v2);
     print(head2);
 
@@ -25,10 +25,13 @@ int main()
     //std::cout << "(case4) bind2: ";
     //print(bind2(head, head2));
 
-    head = remove_if_n(head, 1);
-    std::cout << "(case5) remove n: ";
-    print(head);
-	return 0;
+    //std::cout << "(case5) remove n: ";
+    //head = remove_if_n(head, 1);
+    //print(head);
+
+    std::cout << "(case6) sum2: ";
+    print(sum2(head, head2));
+    return 0;
 }
 
 

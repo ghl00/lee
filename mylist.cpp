@@ -253,13 +253,6 @@ ListNode* remove_if_n(ListNode* head, int n)
     {
         vp.push_back(cur);
     }
-    //std::cout << "vp:";
-    //for (auto it : vp)
-    //{
-    //    std::cout << " " << it->val;
-    //}
-    //std::cout << "\n";
-
     int size_vp = vp.size();
     int del_idx = size_vp - n;
     ListNode* tmp = nullptr;
@@ -282,3 +275,81 @@ ListNode* remove_if_n(ListNode* head, int n)
     return head;
 }
 
+ListNode* sum2(ListNode* l1, ListNode* l2)
+{
+    {
+        if (l1 != NULL && l1->next != NULL)
+        {
+            ListNode* cur = l1->next;
+            ListNode* pre = l1;
+            pre->next = NULL;
+            for (; cur != NULL;)
+            {
+                ListNode* tmp = cur->next;
+                cur->next = pre;
+                pre = cur;
+                cur = tmp;
+            }
+            l1 = pre;
+        }
+    }
+    {
+        if (l2 != NULL && l2->next != NULL)
+        {
+            ListNode* cur = l2->next;
+            ListNode* pre = l2;
+            pre->next = NULL;
+            for (; cur != NULL;)
+            {
+                ListNode* tmp = cur->next;
+                cur->next = pre;
+                pre = cur;
+                cur = tmp;
+            }
+            l2 = pre;
+        }
+    }
+    ListNode* cur1 = l1;
+    ListNode* cur2 = l2;
+    ListNode* cur = nullptr;
+    ListNode* head = nullptr;
+    int carry = 0;
+    for (; cur1 != nullptr || cur2 != nullptr;)
+    {
+        int var1 = (cur1 == nullptr ? 0 : cur1->val);
+        int var2 = (cur2 == nullptr ? 0 : cur2->val);
+        if (head == nullptr)
+        {
+            cur = (ListNode*)malloc(sizeof(ListNode));
+            cur->val = (var1 + var2 + carry) % 10;
+            cur->next = nullptr;
+            head = cur;
+        }
+        else
+        {
+            ListNode* tmp = (ListNode*)malloc(sizeof(ListNode));
+            tmp->val = (var1 + var2 + carry) % 10;
+            tmp->next = nullptr;
+            cur->next = tmp;
+            cur = tmp;
+        }
+        carry = (var1 + var2 + carry) / 10;
+        
+        if (cur1 != nullptr)
+        {
+            cur1 = cur1->next;
+        }
+        if (cur2 != nullptr)
+        {
+            cur2 = cur2->next;
+        }
+    }
+    if (carry != 0)
+    { 
+        ListNode* tmp = (ListNode*)malloc(sizeof(ListNode));
+        tmp->val = carry;
+        tmp->next = nullptr;
+        cur->next = tmp;
+    }
+    return head;
+}

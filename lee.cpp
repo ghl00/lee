@@ -3,7 +3,7 @@
 int main()
 {
     ListNode* head = NULL;
-    std::vector<int> v{9,9,9,9,9,9,9};
+    std::vector<int> v{4,3,2,1};
     insert(&head, v);
     print(head);
 

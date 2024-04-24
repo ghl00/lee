@@ -271,7 +271,7 @@ ListNode* remove_if_n(ListNode* head, int n)
         tmp = vp[del_idx];
         vp[del_idx - 1]->next = vp[del_idx]->next;
     }
-    free(tmp);
+    delete tmp;
     return head;
 }
 
@@ -320,14 +320,14 @@ ListNode* sum2(ListNode* l1, ListNode* l2)
         int var2 = (cur2 == nullptr ? 0 : cur2->val);
         if (head == nullptr)
         {
-            cur = (ListNode*)malloc(sizeof(ListNode));
+            cur = (ListNode*)new ListNode;
             cur->val = (var1 + var2 + carry) % 10;
             cur->next = nullptr;
             head = cur;
         }
         else
         {
-            ListNode* tmp = (ListNode*)malloc(sizeof(ListNode));
+            ListNode* tmp = (ListNode*)new ListNode;;
             tmp->val = (var1 + var2 + carry) % 10;
             tmp->next = nullptr;
             cur->next = tmp;
@@ -346,7 +346,7 @@ ListNode* sum2(ListNode* l1, ListNode* l2)
     }
     if (carry != 0)
     { 
-        ListNode* tmp = (ListNode*)malloc(sizeof(ListNode));
+        ListNode* tmp = (ListNode*)new ListNode;;
         tmp->val = carry;
         tmp->next = nullptr;
         cur->next = tmp;

@@ -16,3 +16,4 @@ bool palind(ListNode* head);
 ListNode* bind2(ListNode* list1, ListNode* list2);
 ListNode* remove_if_n(ListNode* head, int n);
 ListNode* sum2(ListNode* l1, ListNode* l2);
+ListNode* swap(ListNode* head);

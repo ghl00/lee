@@ -8,7 +8,7 @@ int main()
     print(head);
 
     ListNode* head2 = NULL;
-    std::vector<int> v2{9,9,9,9};
+    std::vector<int> v2{9,4,6,5};
     insert(&head2, v2);
     print(head2);
 
@@ -29,8 +29,11 @@ int main()
     //head = remove_if_n(head, 1);
     //print(head);
 
-    std::cout << "(case6) sum2: ";
-    print(sum2(head, head2));
+    //std::cout << "(case6) sum2: ";
+    //print(sum2(head, head2));
+
+    std::cout << "(case7) swap: ";
+    print(swap(head));
     return 0;
 }
 

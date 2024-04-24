@@ -277,38 +277,6 @@ ListNode* remove_if_n(ListNode* head, int n)
 
 ListNode* sum2(ListNode* l1, ListNode* l2)
 {
-    {
-        if (l1 != NULL && l1->next != NULL)
-        {
-            ListNode* cur = l1->next;
-            ListNode* pre = l1;
-            pre->next = NULL;
-            for (; cur != NULL;)
-            {
-                ListNode* tmp = cur->next;
-                cur->next = pre;
-                pre = cur;
-                cur = tmp;
-            }
-            l1 = pre;
-        }
-    }
-    {
-        if (l2 != NULL && l2->next != NULL)
-        {
-            ListNode* cur = l2->next;
-            ListNode* pre = l2;
-            pre->next = NULL;
-            for (; cur != NULL;)
-            {
-                ListNode* tmp = cur->next;
-                cur->next = pre;
-                pre = cur;
-                cur = tmp;
-            }
-            l2 = pre;
-        }
-    }
     ListNode* cur1 = l1;
     ListNode* cur2 = l2;
     ListNode* cur = nullptr;
@@ -350,6 +318,40 @@ ListNode* sum2(ListNode* l1, ListNode* l2)
         tmp->val = carry;
         tmp->next = nullptr;
         cur->next = tmp;
+    }
+    return head;
+}
+
+ListNode* swap(ListNode* head)
+{
+    if (head == nullptr || head->next == nullptr)
+    {
+        return head;
+    }
+    ListNode* pre = head;
+    ListNode* ppre = nullptr;
+    head = nullptr;
+    for (; pre != nullptr;)
+    {
+        ListNode* cur = pre->next;
+        if (cur == nullptr)
+        {
+            break;
+        }
+
+        ListNode* tmp = cur->next;
+        cur->next = pre;
+        pre->next = tmp;
+        if (head == nullptr)
+        {
+            head = cur;
+        }
+        if (ppre)
+        {
+            ppre->next = cur;
+        }
+        ppre = pre;
+        pre = tmp;
     }
     return head;
 }

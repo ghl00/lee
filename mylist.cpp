@@ -361,7 +361,7 @@ ListNode* sort(ListNode* head)
     std::multimap<int, ListNode*> mnode;
     for (ListNode* cur = head; cur != nullptr; cur = cur->next)
     {
-        mnode.insert({ cur->val, cur });
+        mnode.insert({ cur->val, cur } );
     }
     head = nullptr;
     ListNode* pre = nullptr;

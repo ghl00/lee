@@ -3,7 +3,7 @@
 int main()
 {
     ListNode* head = NULL;
-    std::vector<int> v{4,3,2,1};
+    std::vector<int> v{0,4,3,5,3,-1};
     insert(&head, v);
     print(head);
 
@@ -32,8 +32,11 @@ int main()
     //std::cout << "(case6) sum2: ";
     //print(sum2(head, head2));
 
-    std::cout << "(case7) swap: ";
-    print(swap(head));
+    //std::cout << "(case7) swap: ";
+    //print(swap(head));
+
+    std::cout << "(case8) sort: ";
+    print(sort(head));
     return 0;
 }
 

@@ -355,3 +355,33 @@ ListNode* swap(ListNode* head)
     }
     return head;
 }
+
+ListNode* sort(ListNode* head)
+{
+    std::multimap<int, ListNode*> mnode;
+    for (ListNode* cur = head; cur != nullptr; cur = cur->next)
+    {
+        mnode.insert({ cur->val, cur });
+    }
+    head = nullptr;
+    ListNode* pre = nullptr;
+    for (auto& it : mnode)
+    {
+        if (head == nullptr)
+        {
+            head = it.second;
+            head->next = nullptr;
+        }
+        if (pre == nullptr)
+        {
+            pre = it.second;
+        }
+        else
+        {
+            pre->next = it.second;
+            pre = it.second;
+            pre->next = nullptr;
+        }
+    }
+    return head;
+}

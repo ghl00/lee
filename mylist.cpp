@@ -253,23 +253,32 @@ ListNode* remove_if_n(ListNode* head, int n)
     {
         vp.push_back(cur);
     }
+    //std::cout << "vp:";
+    //for (auto it : vp)
+    //{
+    //    std::cout << " " << it->val;
+    //}
+    //std::cout << "\n";
+
     int size_vp = vp.size();
     int del_idx = size_vp - n;
+    ListNode* tmp = nullptr;
     if (del_idx == 0)
     {
-        ListNode* tmp = head;
+        tmp = head;
         head = head->next;
-        free(tmp);
     }
     else if (del_idx == size_vp - 1)
     {
-
+        tmp = vp[del_idx];
+        vp[del_idx - 1]->next = nullptr;
     }
-    std::cout << "vp:";
-    for (auto it : vp)
+    else
     {
-        std::cout << " " << it->val;
+        tmp = vp[del_idx];
+        vp[del_idx - 1]->next = vp[del_idx]->next;
     }
+    free(tmp);
     return head;
 }
 

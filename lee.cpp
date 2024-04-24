@@ -3,7 +3,7 @@
 int main()
 {
     ListNode* head = NULL;
-    std::vector<int> v{4, 3, 2, 6,5,1};
+    std::vector<int> v{1,2,3,4};
     insert(&head, v);
     print(head);
 
@@ -25,7 +25,9 @@ int main()
     //std::cout << "(case4) bind2: ";
     //print(bind2(head, head2));
 
-    /*head = remove_if_n(head, 2);*/
+    head = remove_if_n(head, 1);
+    std::cout << "(case5) remove n: ";
+    print(head);
 	return 0;
 }
 

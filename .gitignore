@@ -1,0 +1,22 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/lee
+/lee.sln
+*.exe
+*.recipe
+*.ilk
+*.pdb
+*.obj
+*.txt
+*.log
+*.idb
+/x64/Debug/lee.tlog/CL.command.1.tlog
+/x64/Debug/lee.tlog/Cl.items.tlog
+/x64/Debug/lee.tlog/CL.read.1.tlog
+/x64/Debug/lee.tlog/CL.write.1.tlog
+/x64/Debug/lee.tlog/lee.lastbuildstate
+/x64/Debug/lee.tlog/link.command.1.tlog
+/x64/Debug/lee.tlog/link.read.1.tlog
+/x64/Debug/lee.tlog/link.write.1.tlog

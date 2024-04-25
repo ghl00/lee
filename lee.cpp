@@ -5,12 +5,12 @@ int main()
     ListNode* head = NULL;
     std::vector<int> v{0,4,3,5,3,-1};
     insert(&head, v);
-    print(head);
+    //print(head);
 
     ListNode* head2 = NULL;
     std::vector<int> v2{9,4,6,5};
     insert(&head2, v2);
-    print(head2);
+    //print(head2);
 
     //std::cout << "(case1) remove 2: ";
     //remove_if(&head);
@@ -35,8 +35,31 @@ int main()
     //std::cout << "(case7) swap: ";
     //print(swap(head));
 
-    std::cout << "(case8) sort: ";
-    print(sort(head));
+    //std::cout << "(case8) sort: ";
+    //print(sort(head));
+
+    TreeNode* root = nullptr;
+    std::vector<int> vt{27,14,35,10,19,31,42};
+    for (auto it:vt)
+    {
+        root = InsertNode(root, it);
+    }
+    std::cout << "In:";
+    InOrderTraverse(root);
+    std::cout << "\n";
+
+    std::cout << "Pre:";
+    PreOrderTraverse(root);
+    std::cout << "\n";
+
+    std::cout << "Post:";
+    PostOrderTraverse(root);
+    std::cout << "\n";
+
+    std::cout << "Level:";
+    LevelOrderTraverse(root);
+    std::cout << "\n";
+
     return 0;
 }
 

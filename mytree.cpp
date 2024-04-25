@@ -29,7 +29,7 @@ TreeNode* InsertNode(TreeNode* root, int val)
         }
         else 
         {
-            if (cur->right == NULL)
+            if (cur->right == nullptr)
             {
                 cur->right = CreataNode(val);
                 break;
@@ -75,6 +75,10 @@ void PostOrderTraverse(TreeNode* root)
 
 void LevelOrderTraverse(TreeNode* root)
 {
+    if (root == nullptr)
+    {
+        return;
+    }
     std::queue<TreeNode*> q;
     q.push(root);
     while (!q.empty())

@@ -39,7 +39,7 @@ int main()
     //print(sort(head));
 
     TreeNode* root = nullptr;
-    std::vector<int> vt{27,14,35,10,19,31,42};
+    std::vector<int> vt{27, 14, 35, 10, 19, 31, 42};
     for (auto it:vt)
     {
         root = InsertNode(root, it);

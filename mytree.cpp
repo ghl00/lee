@@ -7,10 +7,10 @@ TreeNode* CreataNode(int val)
 
 TreeNode* InsertNode(TreeNode* root, int val)
 {
-	if (root == nullptr)
-	{
-		return CreataNode(val);
-	}
+    if (root == nullptr)
+    {
+        return CreataNode(val);
+    }
     TreeNode* cur = root;
     while (1) 
     {

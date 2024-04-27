@@ -106,6 +106,29 @@ int maxDepth(TreeNode* root)
     return std::max(maxDepth(root->left), maxDepth(root->right)) + 1;
 }
 
+int maxDepth2(TreeNode* root)
+{
+    std::queue<TreeNode*> q;
+    q.push(root);
+    int depth = 0;
+    for (; !q.empty(); depth++)
+    {
+        for (int size = q.size(); size > 0; size--)
+        {
+            TreeNode* node = q.front();
+            q.pop();
+            if (node->left)
+            {
+                q.push(node->left);
+            }
+            if (node->right)
+            {
+                q.push(node->right);
+            }
+        }
+    }
+    return depth;
+}
 std::vector<int> inorderTraversal(TreeNode* root)
 {
     static std::vector<int> v;

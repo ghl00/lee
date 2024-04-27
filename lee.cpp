@@ -44,9 +44,10 @@ int main()
     {
         root = InsertNode(root, it);
     }
-    std::cout << "In:";
-    InOrderTraverse(root);
-    std::cout << "\n";
+
+    //std::cout << "In:";
+    //InOrderTraverse(root);
+    //std::cout << "\n";
 
     //std::cout << "Pre:";
     //PreOrderTraverse(root);
@@ -60,7 +61,7 @@ int main()
     //LevelOrderTraverse(root);
     //std::cout << "\n";
 
-    //std::cout << maxDepth(root) << "\n";
+    std::cout << maxDepth2(root) << "\n";
 
     //std::vector<int> vtree = inorderTraversal(root);
     //std::cout << "in:";

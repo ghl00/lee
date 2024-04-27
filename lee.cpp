@@ -48,18 +48,26 @@ int main()
     InOrderTraverse(root);
     std::cout << "\n";
 
-    std::cout << "Pre:";
-    PreOrderTraverse(root);
-    std::cout << "\n";
+    //std::cout << "Pre:";
+    //PreOrderTraverse(root);
+    //std::cout << "\n";
 
-    std::cout << "Post:";
-    PostOrderTraverse(root);
-    std::cout << "\n";
+    //std::cout << "Post:";
+    //PostOrderTraverse(root);
+    //std::cout << "\n";
 
-    std::cout << "Level:";
-    LevelOrderTraverse(root);
-    std::cout << "\n";
+    //std::cout << "Level:";
+    //LevelOrderTraverse(root);
+    //std::cout << "\n";
 
+    //std::cout << maxDepth(root) << "\n";
+
+    //std::vector<int> vtree = inorderTraversal(root);
+    //std::cout << "in:";
+    //for (auto it : vtree)
+    //{
+    //    std::cout << " " << it;
+    //}
     return 0;
 }
 

@@ -16,4 +16,6 @@ TreeNode* InsertNode(TreeNode* root, int val);
 void PreOrderTraverse(TreeNode* root);
 void InOrderTraverse(TreeNode* root);
 void PostOrderTraverse(TreeNode* root);
-void LevelOrderTraverse(TreeNode* root);
+void LevelOrderTraverse(TreeNode* root); 
+int maxDepth(TreeNode* root);
+std::vector<int> inorderTraversal(TreeNode* root);

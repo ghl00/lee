@@ -108,6 +108,10 @@ int maxDepth(TreeNode* root)
 
 int maxDepth2(TreeNode* root)
 {
+    if (root == nullptr)
+    {
+        return 0;
+    }
     std::queue<TreeNode*> q;
     q.push(root);
     int depth = 0;

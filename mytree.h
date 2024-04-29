@@ -20,3 +20,4 @@ void LevelOrderTraverse(TreeNode* root);
 int maxDepth(TreeNode* root);
 std::vector<int> inorderTraversal(TreeNode* root);
 int maxDepth2(TreeNode* root);
+TreeNode* invertTree(TreeNode* root);

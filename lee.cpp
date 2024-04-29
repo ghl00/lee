@@ -57,11 +57,7 @@ int main()
     //PostOrderTraverse(root);
     //std::cout << "\n";
 
-    //std::cout << "Level:";
-    //LevelOrderTraverse(root);
-    //std::cout << "\n";
-
-    std::cout << maxDepth2(root) << "\n";
+    //std::cout << maxDepth2(root) << "\n";
 
     //std::vector<int> vtree = inorderTraversal(root);
     //std::cout << "in:";
@@ -69,6 +65,11 @@ int main()
     //{
     //    std::cout << " " << it;
     //}
+
+    root = invertTree(root);
+    std::cout << "Level:";
+    LevelOrderTraverse(root);
+    std::cout << "\n";
     return 0;
 }
 

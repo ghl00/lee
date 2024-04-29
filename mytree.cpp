@@ -152,3 +152,16 @@ std::vector<int> inorderTraversal(TreeNode* root)
     }
     return v;
 }
+
+TreeNode* invertTree(TreeNode* root) 
+{
+    if (root == nullptr)
+    {
+        return root;
+    }
+    TreeNode* tmp = root->left;
+    root->left = root->right;
+    root->right = tmp;
+
+    return root;
+}

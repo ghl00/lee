@@ -59,7 +59,7 @@ void InOrderTraverse(TreeNode* root)
     {
         InOrderTraverse(root->left);
         std::cout << " " << root->val;
-        PreOrderTraverse(root->right);
+        InOrderTraverse(root->right);
     }
 }
 
@@ -95,4 +95,73 @@ void LevelOrderTraverse(TreeNode* root)
             q.push(cur->right);
         }
     }
+}
+
+int maxDepth(TreeNode* root) 
+{
+    if (root == nullptr)
+    {
+        return 0;
+    }
+    return std::max(maxDepth(root->left), maxDepth(root->right)) + 1;
+}
+
+int maxDepth2(TreeNode* root)
+{
+    if (root == nullptr)
+    {
+        return 0;
+    }
+    std::queue<TreeNode*> q;
+    q.push(root);
+    int depth = 0;
+    for (; !q.empty(); depth++)
+    {
+        for (int size = q.size(); size > 0; size--)
+        {
+            TreeNode* node = q.front();
+            q.pop();
+            if (node->left)
+            {
+                q.push(node->left);
+            }
+            if (node->right)
+            {
+                q.push(node->right);
+            }
+        }
+    }
+    return depth;
+}
+std::vector<int> inorderTraversal(TreeNode* root)
+{
+    static std::vector<int> v;
+    static int rdepth = 0;
+    ++rdepth;
+    if (root)
+    {
+        inorderTraversal(root->left);
+        v.push_back(root->val);
+        inorderTraversal(root->right);
+    }
+    if (--rdepth == 0)
+    {
+        std::vector<int> tmp = v;
+        v.clear();
+        return tmp;
+    }
+    return v;
+}
+
+TreeNode* invertTree(TreeNode* root) 
+{
+    if (root == nullptr)
+    {
+        return root;
+    }
+    TreeNode* tmp = root->left;
+    root->left = root->right;
+    root->right = tmp;
+
+    return root;
 }

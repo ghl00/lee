@@ -44,22 +44,32 @@ int main()
     {
         root = InsertNode(root, it);
     }
-    std::cout << "In:";
-    InOrderTraverse(root);
-    std::cout << "\n";
 
-    std::cout << "Pre:";
-    PreOrderTraverse(root);
-    std::cout << "\n";
+    //std::cout << "In:";
+    //InOrderTraverse(root);
+    //std::cout << "\n";
 
-    std::cout << "Post:";
-    PostOrderTraverse(root);
-    std::cout << "\n";
+    //std::cout << "Pre:";
+    //PreOrderTraverse(root);
+    //std::cout << "\n";
 
+    //std::cout << "Post:";
+    //PostOrderTraverse(root);
+    //std::cout << "\n";
+
+    //std::cout << maxDepth2(root) << "\n";
+
+    //std::vector<int> vtree = inorderTraversal(root);
+    //std::cout << "in:";
+    //for (auto it : vtree)
+    //{
+    //    std::cout << " " << it;
+    //}
+
+    root = invertTree(root);
     std::cout << "Level:";
     LevelOrderTraverse(root);
     std::cout << "\n";
-
     return 0;
 }
 

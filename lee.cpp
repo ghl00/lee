@@ -66,10 +66,12 @@ int main()
     //    std::cout << " " << it;
     //}
 
-    root = invertTree(root);
-    std::cout << "Level:";
-    LevelOrderTraverse(root);
-    std::cout << "\n";
+    //root = invertTree(root);
+    //std::cout << "Level:";
+    //LevelOrderTraverse(root);
+    //std::cout << "\n";
+
+
     return 0;
 }
 

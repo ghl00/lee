@@ -5,6 +5,41 @@ TreeNode* CreataNode(int val)
     return new TreeNode(val, nullptr, nullptr);
 }
 
+TreeNode* Solution::CreateTree(TreeNode* root, std::vector<TreeNode*>& vtree)
+{
+    std::queue<TreeNode*> q;
+    q.push(vtree[0]);
+
+    int i = 0;
+    while (1)
+    {
+        TreeNode* tmp = q.front();
+        q.pop();
+        if (tmp != nullptr)
+        {
+            if (++i < vtree.size())
+            {
+                tmp->left = vtree[i];
+                q.push(tmp->left);
+            }
+            else
+            {
+                break;
+            }
+            if (++i < vtree.size())
+            {
+                tmp->right = vtree[i];
+                q.push(tmp->right);
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+    return root;
+}
+
 TreeNode* InsertNode(TreeNode* root, int val)
 {
     if (root == nullptr)
@@ -14,7 +49,6 @@ TreeNode* InsertNode(TreeNode* root, int val)
     TreeNode* cur = root;
     while (1) 
     {
-        TreeNode* parent = cur;
         if (val < cur->val)
         {
             if (cur->left == nullptr) 
@@ -117,7 +151,7 @@ int maxDepth2(TreeNode* root)
     int depth = 0;
     for (; !q.empty(); depth++)
     {
-        for (int size = q.size(); size > 0; size--)
+        for (size_t size = q.size(); size > 0; size--)
         {
             TreeNode* node = q.front();
             q.pop();
@@ -159,9 +193,111 @@ TreeNode* invertTree(TreeNode* root)
     {
         return root;
     }
+    invertTree(root->left);
+    invertTree(root->right);
     TreeNode* tmp = root->left;
     root->left = root->right;
     root->right = tmp;
-
     return root;
+}
+
+bool isSymmetric(TreeNode* root) 
+{
+    bool res = true;
+
+    return res;
+}
+
+std::vector<std::vector<int>> levelOrder(TreeNode* root)
+{
+    std::vector<std::vector<int>> vv;
+    if (root == nullptr)
+    {
+        return vv;
+    }
+    std::queue<TreeNode*> q;
+    q.push(root);
+    for (int depth = 0; !q.empty(); depth++)
+    {
+        std::vector<int> v;
+        for (size_t size = q.size(); size > 0; size--)
+        {
+            TreeNode* node = q.front();
+            v.push_back(node->val);
+            q.pop();
+            if (node->left)
+            {
+                q.push(node->left);
+            }
+            if (node->right)
+            {
+                q.push(node->right);
+            }
+        }
+        vv.push_back(v);
+    }
+    return vv;
+}
+
+int Solution::depth(TreeNode* root)
+{
+    if (root == nullptr)
+    {
+        return 0;
+    }
+    int L = depth(root->left);
+    int R = depth(root->right);
+    ans = max(ans, L + R + 1);
+    return max(L, R) + 1;
+}
+
+int Solution::diameterOfBinaryTree(TreeNode* root)
+{
+    ans = 1;
+    ans = depth(root);
+    return ans - 1;
+}
+
+TreeNode* helper(vector<int>& nums, size_t left, size_t right)
+{
+    if (left > right)
+    {
+        return nullptr;
+    }
+    size_t mid = (left + right) / 2;
+    TreeNode* root = new TreeNode(nums[mid]);
+    root->left = helper(nums, left, mid - 1);
+    root->right = helper(nums, mid + 1, right);
+    return root;
+}
+
+TreeNode* sortedArrayToBST(std::vector<int>& nums) 
+{
+    return helper(nums, 0, nums.size() - 1);
+}
+
+
+bool Solution::isValidBST(TreeNode* root)
+{
+    std::stack<TreeNode*> stack;
+    long long inorder = (long long)INT_MIN - 1;
+
+    while (!stack.empty() || root != nullptr)
+    {
+        while (root != nullptr)
+        {
+            stack.push(root);
+            root = root->left;
+        }
+        root = stack.top();
+        stack.pop();
+        if (root->val <= inorder)
+        {
+            return false;
+        }
+        inorder = root->val;
+        root = root->right;
+    }
+
+    return true;
 }

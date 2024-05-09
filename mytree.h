@@ -8,9 +8,21 @@ struct TreeNode
 	TreeNode*	right;
 
 	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 	TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
 };
 
+class Solution
+{
+public:
+	int			ans;
+
+	TreeNode* CreateTree(TreeNode* root, std::vector<TreeNode*>& vtree);
+	int depth(TreeNode* root);
+	int diameterOfBinaryTree(TreeNode* root);
+	bool isValidBST(TreeNode* root);
+
+};
 
 TreeNode* InsertNode(TreeNode* root, int val);
 void PreOrderTraverse(TreeNode* root);
@@ -21,3 +33,5 @@ int maxDepth(TreeNode* root);
 std::vector<int> inorderTraversal(TreeNode* root);
 int maxDepth2(TreeNode* root);
 TreeNode* invertTree(TreeNode* root);
+bool isSymmetric(TreeNode* root);
+std::vector<std::vector<int>> levelOrder(TreeNode* root);

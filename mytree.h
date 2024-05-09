@@ -17,13 +17,14 @@ class Solution
 public:
 	int			ans;
 
-	TreeNode* CreateTree(TreeNode* root, std::vector<TreeNode*>& vtree);
+	static TreeNode* CreateTree(TreeNode* root, std::vector<TreeNode*>& vtree);
 	int depth(TreeNode* root);
 	int diameterOfBinaryTree(TreeNode* root);
-	bool isValidBST(TreeNode* root);
+	static bool isValidBST(TreeNode* root);
 
 };
 
+TreeNode* CreataNode(int val);
 TreeNode* InsertNode(TreeNode* root, int val);
 void PreOrderTraverse(TreeNode* root);
 void InOrderTraverse(TreeNode* root);

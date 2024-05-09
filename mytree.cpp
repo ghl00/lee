@@ -9,6 +9,7 @@ TreeNode* Solution::CreateTree(TreeNode* root, std::vector<TreeNode*>& vtree)
 {
     std::queue<TreeNode*> q;
     q.push(vtree[0]);
+    root = vtree[0];
 
     int i = 0;
     while (1)
@@ -201,13 +202,6 @@ TreeNode* invertTree(TreeNode* root)
     return root;
 }
 
-bool isSymmetric(TreeNode* root) 
-{
-    bool res = true;
-
-    return res;
-}
-
 std::vector<std::vector<int>> levelOrder(TreeNode* root)
 {
     std::vector<std::vector<int>> vv;
@@ -269,6 +263,18 @@ TreeNode* helper(vector<int>& nums, size_t left, size_t right)
     root->left = helper(nums, left, mid - 1);
     root->right = helper(nums, mid + 1, right);
     return root;
+}
+
+static bool check(TreeNode* p, TreeNode* q) 
+{
+    if (!p && !q) return true;
+    if (!p || !q) return false;
+    return p->val == q->val && check(p->left, q->right) && check(p->right, q->left);
+}
+
+bool isSymmetric(TreeNode* root) 
+{
+    return check(root, root);
 }
 
 TreeNode* sortedArrayToBST(std::vector<int>& nums) 
